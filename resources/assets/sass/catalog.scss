@@ -1,0 +1,18 @@
+.navbar {
+    border-radius: 0 0 $border-radius $border-radius;
+    border-color: transparent;
+}
+
+.container {
+    .content {
+        background-color: $content-bg;
+        border-radius: $border-radius;
+        padding: 10px 30px;
+
+        ul {
+            &.top-tree-level {
+                padding-left: 15px;
+            }
+        }
+    }
+}
