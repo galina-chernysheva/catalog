@@ -15,7 +15,7 @@ class CatalogController extends Controller
     {
         return view('catalog.index', [
             'name'          => 'Каталог',
-            'categories'    => Category::with('children')->whereNull('parent_id')->orderBy('id')->get()
+            'categories'    => Category::getFullTree()
         ]);
     }
 

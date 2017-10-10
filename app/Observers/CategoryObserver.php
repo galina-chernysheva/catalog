@@ -17,10 +17,8 @@ class CategoryObserver
         $category->syncChanges();
 
         // Генерация нового ID
-        if (empty($category->id))
+        if (empty($category->id) && empty($category->code))
             $category->id = $category->genId();
-
-        $category->id = strtoupper($category->id);
 
         // Генерация нового url
         if ($category->wasChanged('title') || empty($category->url))

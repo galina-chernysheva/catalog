@@ -26,7 +26,7 @@ Breadcrumbs::register('category', function ($breadcrumbs, $category) {
     /**
      * @var $category App\Category
      */
-    if ($category->parent) {
+    if ($category->parent_id) {
         $breadcrumbs->parent('category', $category->parent);
     } else {
         $breadcrumbs->parent('catalog');

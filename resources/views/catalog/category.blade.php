@@ -20,20 +20,21 @@
 @section('content')
     @php
         $url = $category->getFullUrl();
+        $branch = $category->getBranchTree();
     @endphp
     <form class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-2">ID</label>
-            <div class="col-sm-10">{{ $category->id }}</div>
+            <label class="col-sm-2">Код</label>
+            <div class="col-sm-10">{{ $category->getCode() }}</div>
         </div>
         <div class="form-group">
             <label class="col-sm-2">URL</label>
             <div class="col-sm-10"><a href="{{ $url }}">{{ $url }}</a></div>
         </div>
-        @if ($category->children()->count() > 0)
+        @if (!empty($branch))
             <div class="form-group">
                 <label class="col-sm-2">Подкатегории</label>
-                <div class="col-sm-10">{!! view('catalog._tree', ['categories' => $category->children]) !!}</div>
+                <div class="col-sm-10">{!! view('catalog._tree', ['categories' => $branch]) !!}</div>
             </div>
         @endif
     </form>
